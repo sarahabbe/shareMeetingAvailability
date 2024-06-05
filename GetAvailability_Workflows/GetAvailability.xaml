@@ -1,0 +1,571 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Gettimes" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mg="clr-namespace:Microsoft.Graph;assembly=Microsoft.Graph" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uia="clr-namespace:UiPath.IPC.Activities;assembly=UiPath.IPC.Activities" xmlns:uma="clr-namespace:UiPath.MicrosoftOffice365.Activities;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umac="clr-namespace:UiPath.MicrosoftOffice365.Activities.Calendar;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_dict_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>2499,8795</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="84">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.IPC.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>Microsoft.Graph</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Calendar</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="110">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.IPC.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Callout.Activity</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.WPFInteractive.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Text.Json</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Get availability for internal attendees" sap:VirtualizedContainerService.HintSize="1030,8730" sap2010:WorkflowViewState.IdRef="Sequence_83">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="njl:JArray" Name="jArr_meetingTimeRange" />
+      <Variable x:TypeArguments="x:String" Name="str_emailDomain" />
+      <Variable x:TypeArguments="scg:ICollection(x:String)" Default="[new list(of string)]" Name="list_internalMeetingAttendees" />
+      <Variable x:TypeArguments="scg:ICollection(x:String)" Default="[new list(of string)]" Name="list_externalMeetingAttendees" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_availableTimeSlots" />
+      <Variable x:TypeArguments="s:String[]" Name="strArr_allAttendeeEmails" />
+      <Variable x:TypeArguments="x:Int32" Name="meetingRangeIndex" />
+      <Variable x:TypeArguments="njl:JArray" Name="jArr_suggestedTimes" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="968,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_24" Message="[&quot;Retrieving meeting availability&quot; + vbNewLine + vbNewLine + &quot;Please wait, this may take a few moments.&quot;]" PollingInterval="10" Timeout="0" />
+    <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array - Get meeting time ranges" sap:VirtualizedContainerService.HintSize="968,130" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[jArr_meetingTimeRange]" JsonString="[io_dict_Config(&quot;meetingTimeRangeGrid&quot;).ToString]" />
+    <Assign DisplayName="Assign - Get user's email domain" sap:VirtualizedContainerService.HintSize="968,70" sap2010:WorkflowViewState.IdRef="Assign_72">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[str_emailDomain]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[split(io_dict_Config("selectYourEmailAccount").ToString,"@")(1)]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:MultipleAssign DisplayName="Multiple Assign - Get array of all attendees email addresses" sap:VirtualizedContainerService.HintSize="968,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_22">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AssignOperation_56">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:String[]">[strArr_allAttendeeEmails]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:String[]">[split(io_dict_Config("attendeeEmailAddresses").ToString, ";").Where(Function(x) Not String.IsNullOrEmpty(x)).ToArray().Where(Function(x) Not String.IsNullOrWhiteSpace(X)).ToArray]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_55">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:String[]">[strArr_allAttendeeEmails]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:String[]">[strArr_allAttendeeEmails.Select(Function(s) s.Trim).toArray]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_77">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[io_dict_Config("attendeeEmailAddressesString")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[String.Join("; ", strArr_allAttendeeEmails)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="968,589" sap2010:WorkflowViewState.IdRef="ForEach`1_19" Values="[strArr_allAttendeeEmails]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="attendee" />
+          </ActivityAction.Argument>
+          <If Condition="[attendee.Contains(str_emailDomain)]" sap:VirtualizedContainerService.HintSize="416,459" sap2010:WorkflowViewState.IdRef="If_55">
+            <If.Then>
+              <AddToCollection x:TypeArguments="x:String" Collection="[list_internalMeetingAttendees]" DisplayName="Add To Internal Attendees" sap:VirtualizedContainerService.HintSize="334,148" sap2010:WorkflowViewState.IdRef="AddToCollection`1_13" Item="[attendee]" />
+            </If.Then>
+            <If.Else>
+              <AddToCollection x:TypeArguments="x:String" Collection="[list_ExternalMeetingAttendees]" DisplayName="Add To External Attendees" sap:VirtualizedContainerService.HintSize="334,148" sap2010:WorkflowViewState.IdRef="AddToCollection`1_14" Item="[attendee]" />
+            </If.Else>
+          </If>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="968,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_29">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_75">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[io_dict_Config("list_internalMeetingAttendees")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[JsonConvert.SerializeObject(list_internalMeetingAttendees)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_76">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[io_dict_Config("list_ExternalMeetingAttendees")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[JsonConvert.SerializeObject(list_ExternalMeetingAttendees)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <If Condition="[list_internalMeetingAttendees.Count&gt;1]" DisplayName="distinct external attendees" sap:VirtualizedContainerService.HintSize="968,363" sap2010:WorkflowViewState.IdRef="If_67">
+      <If.Then>
+        <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_94">
+          <Assign.To>
+            <OutArgument x:TypeArguments="scg:ICollection(x:String)">[list_internalMeetingAttendees]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="scg:List(x:String)">[list_internalMeetingAttendees.Distinct().ToList()]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
+    <If Condition="[list_externalMeetingAttendees.Count&gt;1]" DisplayName="distinct internal attendees" sap:VirtualizedContainerService.HintSize="968,363" sap2010:WorkflowViewState.IdRef="If_68">
+      <If.Then>
+        <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_87">
+          <Assign.To>
+            <OutArgument x:TypeArguments="scg:ICollection(x:String)">[list_externalMeetingAttendees]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="scg:List(x:String)">[list_externalMeetingAttendees.Distinct().ToList()]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
+    <If Condition="[list_externalMeetingAttendees.Count&gt;0]" sap:VirtualizedContainerService.HintSize="968,363" sap2010:WorkflowViewState.IdRef="If_75">
+      <If.Then>
+        <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_93">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Object">[io_dict_Config("attendeeType")]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Object">["external"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_92">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Object">[io_dict_Config("attendeeType")]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Object">["internal"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="968,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_25" Message="[&quot;Authenticating Outlook access, please check for an authentication window&quot; + vbNewLine + &quot;It may be behind your other windows.&quot;]" PollingInterval="10" Timeout="0" />
+    <ui:BuildDataTable DataTable="[dt_availableTimeSlots]" DisplayName="Build datatable for all available times" sap:VirtualizedContainerService.HintSize="968,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;meetingDate&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;meetingStart&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;meetingEnd&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;suggestedTimezone&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;propose&quot; msdata:Caption=&quot;&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="968,4695" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_6" OAuthApplication="UiPath" Services="Calendar">
+      <uma:Office365ApplicationScope.Body>
+        <ActivityAction x:TypeArguments="mg:GraphServiceClient">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="mg:GraphServiceClient" Name="ParentScope" />
+          </ActivityAction.Argument>
+          <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="[meetingRangeIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="934,4599" sap2010:WorkflowViewState.IdRef="ForEach`1_22" Values="[jArr_meetingTimeRange]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="njl:JObject">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="njl:JObject" Name="meetingRange" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Look up calenders" sap:VirtualizedContainerService.HintSize="852,4469" sap2010:WorkflowViewState.IdRef="Sequence_92">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="s:DateTime" Name="fromStartDateTime" />
+                    <Variable x:TypeArguments="s:DateTime" Name="fromEndDateTime" />
+                    <Variable x:TypeArguments="x:String" Name="str_timeZoneName" />
+                    <Variable x:TypeArguments="x:Int32" Name="int_meetingDuration" />
+                    <Variable x:TypeArguments="mg:MeetingTimeSuggestion[]" Name="suggestedTimes_internalAttendees" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="790,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_27">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_69">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="s:DateTime">[fromStartDateTime]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="s:DateTime">[convert.ToDateTime(meetingRange("meetingStart").ToString)]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_70">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="s:DateTime">[fromEndDateTime]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="s:DateTime">[convert.ToDateTime(meetingRange("meetingEnd").ToString)]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_71">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_timeZoneName]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[meetingRange("timezone").ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_72">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Int32">[int_meetingDuration]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(meetingRange("duration"))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="790,148" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[str_timeZoneName]" />
+                  <If Condition="[fromStartDateTime&gt;fromEndDateTime]" sap:VirtualizedContainerService.HintSize="790,612" sap2010:WorkflowViewState.IdRef="If_66">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="400,336" sap2010:WorkflowViewState.IdRef="Sequence_96">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_28" Message="[&quot;The ending date and time for meeting range &quot; + (meetingRangeIndex+1).ToString + &quot; occurs before the beginning date and time.&quot; + vbNewLine + &quot;Please fix the meeting range and try getting availability again.&quot;]" PollingInterval="10" Timeout="0" />
+                        <ui:Break sap:VirtualizedContainerService.HintSize="338,32" sap2010:WorkflowViewState.IdRef="Break_12" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="400,113" sap2010:WorkflowViewState.IdRef="Sequence_95">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <If Condition="[string.IsNullOrEmpty(str_timeZoneName)]" DisplayName="If timezone is left empty, use default time zone" sap:VirtualizedContainerService.HintSize="790,397" sap2010:WorkflowViewState.IdRef="If_74">
+                    <If.Then>
+                      <umac:FindMeetingTimes EmptySuggestionsReason="{x:Null}" Locations="{x:Null}" TimeZone="{x:Null}" Attendees="[list_internalMeetingAttendees.ToArray]" AvailableTimeslots="[suggestedTimes_internalAttendees]" DisplayName="Find Meeting Times" sap:VirtualizedContainerService.HintSize="434,117" sap2010:WorkflowViewState.IdRef="FindMeetingTimes_6" IntervalEnd="[fromEndDateTime]" IntervalStart="[fromStartDateTime]" MeetingDuration="[int_meetingDuration]" OrganizerRequired="True" Policy="Work">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </umac:FindMeetingTimes>
+                    </If.Then>
+                    <If.Else>
+                      <umac:FindMeetingTimes EmptySuggestionsReason="{x:Null}" Locations="{x:Null}" Attendees="[list_internalMeetingAttendees.ToArray]" AvailableTimeslots="[suggestedTimes_internalAttendees]" DisplayName="Find Meeting Times" sap:VirtualizedContainerService.HintSize="434,117" sap2010:WorkflowViewState.IdRef="FindMeetingTimes_5" IntervalEnd="[fromEndDateTime]" IntervalStart="[fromStartDateTime]" MeetingDuration="[int_meetingDuration]" OrganizerRequired="True" Policy="Work" TimeZone="[meetingRange(&quot;timezone&quot;).ToString]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </umac:FindMeetingTimes>
+                    </If.Else>
+                  </If>
+                  <ui:ForEach x:TypeArguments="mg:MeetingTimeSuggestion" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="790,2827" sap2010:WorkflowViewState.IdRef="ForEach`1_26" Values="[suggestedTimes_internalAttendees]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="mg:MeetingTimeSuggestion">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="mg:MeetingTimeSuggestion" Name="suggestedTime" />
+                        </ActivityAction.Argument>
+                        <If Condition="[suggestedTime.Confidence.equals(100.0)]" sap:VirtualizedContainerService.HintSize="708,2697" sap2010:WorkflowViewState.IdRef="If_73">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Check if suggested time works" sap:VirtualizedContainerService.HintSize="626,2434" sap2010:WorkflowViewState.IdRef="Sequence_104">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:Boolean" Name="bool_allAttendeesFree" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="564,70" sap2010:WorkflowViewState.IdRef="Assign_88">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[bool_allAttendeesFree]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <If Condition="[suggestedTime.OrganizerAvailability.Value.ToString.Equals(&quot;Tentative&quot;)]" DisplayName="Checks if Organizer is tentative during suggested time slot" sap:VirtualizedContainerService.HintSize="564,527" sap2010:WorkflowViewState.IdRef="If_70">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence DisplayName="Continue to next suggested time" sap:VirtualizedContainerService.HintSize="400,264" sap2010:WorkflowViewState.IdRef="Sequence_101">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_89">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[bool_allAttendeesFree]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:Continue sap:VirtualizedContainerService.HintSize="338,32" sap2010:WorkflowViewState.IdRef="Continue_3" />
+                                  </Sequence>
+                                </If.Then>
+                              </If>
+                              <ui:ForEach x:TypeArguments="mg:AttendeeAvailability" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="564,657" sap2010:WorkflowViewState.IdRef="ForEach`1_23" Values="[suggestedTime.AttendeeAvailability]">
+                                <ui:ForEach.Body>
+                                  <ActivityAction x:TypeArguments="mg:AttendeeAvailability">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="mg:AttendeeAvailability" Name="attendee" />
+                                    </ActivityAction.Argument>
+                                    <If Condition="[attendee.Availability.Value.ToString.Equals(&quot;Tentative&quot;)]" DisplayName="Check if Attendees are tentative during suggested time slot" sap:VirtualizedContainerService.HintSize="482,527" sap2010:WorkflowViewState.IdRef="If_71">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Sequence DisplayName="Continue to next suggested time" sap:VirtualizedContainerService.HintSize="400,264" sap2010:WorkflowViewState.IdRef="Sequence_102">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_90">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[bool_allAttendeesFree]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:Continue sap:VirtualizedContainerService.HintSize="338,32" sap2010:WorkflowViewState.IdRef="Continue_4" />
+                                        </Sequence>
+                                      </If.Then>
+                                    </If>
+                                  </ActivityAction>
+                                </ui:ForEach.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:ForEach>
+                              <If Condition="[bool_allAttendeesFree]" DisplayName="If suggested time has no tentative attendees" sap:VirtualizedContainerService.HintSize="564,938" sap2010:WorkflowViewState.IdRef="If_72">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="478,675" sap2010:WorkflowViewState.IdRef="Sequence_110">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[string.IsNullOrEmpty(str_timeZoneName)]" DisplayName="If timezone is left empty, use default time zone" sap:VirtualizedContainerService.HintSize="416,553" sap2010:WorkflowViewState.IdRef="If_76">
+                                      <If.Then>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[new object() {Convert.ToDateTime(suggestedTime.MeetingTimeSlot.Start.DateTime).ToString(&quot;MM/dd/yyyy&quot;), Convert.ToDateTime(suggestedTime.MeetingTimeSlot.Start.DateTime).ToString(&quot;hh:mm tt&quot;), Convert.ToDateTime(suggestedTime.MeetingTimeSlot.end.DateTime).ToString(&quot;hh:mm tt&quot;), suggestedTime.MeetingTimeSlot.Start.TimeZone, false}]" DataTable="[dt_availableTimeSlots]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,195" sap2010:WorkflowViewState.IdRef="AddDataRow_11" />
+                                      </If.Then>
+                                      <If.Else>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[new object() {Convert.ToDateTime(suggestedTime.MeetingTimeSlot.Start.DateTime).ToString(&quot;MM/dd/yyyy&quot;), Convert.ToDateTime(suggestedTime.MeetingTimeSlot.Start.DateTime).ToString(&quot;hh:mm tt&quot;), Convert.ToDateTime(suggestedTime.MeetingTimeSlot.end.DateTime).ToString(&quot;hh:mm tt&quot;), meetingRange(&quot;timezone&quot;).ToString, false}]" DataTable="[dt_availableTimeSlots]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,195" sap2010:WorkflowViewState.IdRef="AddDataRow_10" />
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Then>
+                              </If>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+        </ActivityAction>
+      </uma:Office365ApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uma:Office365ApplicationScope>
+    <If Condition="[dt_availableTimeslots.RowCount &gt; 0]" DisplayName="If there is at least 1 suggested time" sap:VirtualizedContainerService.HintSize="968,889" sap2010:WorkflowViewState.IdRef="If_69">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="493,584" sap2010:WorkflowViewState.IdRef="Sequence_105">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="431,130" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_4" JsonArray="[jArr_suggestedTimes]" JsonString="[JsonConvert.SerializeObject(dt_availableTimeSlots)]" />
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,110" sap2010:WorkflowViewState.IdRef="MultipleAssign_28">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_74">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[io_dict_Config("potentialMeetingTimesGrid")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="njl:JArray">[jArr_suggestedTimes]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_30" Message="[&quot;Retrieved available times for your meeting,&quot; +vbNewLine +  &quot;please select your desired time slots.&quot;]" PollingInterval="10" Timeout="0" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <uia:BroadcastMessage ContinueOnError="{x:Null}" Channel="[io_dict_Config(&quot;statusWindowChannel&quot;).ToString]" DisplayName="Broadcast Message" sap:VirtualizedContainerService.HintSize="334,142" sap2010:WorkflowViewState.IdRef="BroadcastMessage_29" Message="[&quot;No available time slots found for your specified meeting ranges,&quot; + vbNewLine + &quot;please update your meeting ranges and try again.&quot;]" PollingInterval="10" Timeout="0" />
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
